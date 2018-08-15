@@ -1,17 +1,18 @@
-"""Flask-DbShell-------------
-Django-like dbshell
+"""Flask-Opener-----
+Open e-mails sent in development to your own browser
+Inspired by Letter Opener
 """
 from setuptools import setup, find_packages
 
 
 setup(
     name='Flask-Opener',
-    version='0.1',
+    version='0.1.1',
     url='http://github.com/diofeher/flask-opener/',
     license='BSD',
     author='diofeher',
     author_email='contato@diofeher.net',
-    description='Letter Opener (Rails) for Flask',
+    description='Open e-mails sent in development to your own browser',
     long_description=__doc__,
     zip_safe=False,
     packages=find_packages(),
