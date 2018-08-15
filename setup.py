@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Flask-Opener',
-    version='0.1.2',
+    version='0.1.3',
     url='http://github.com/diofeher/flask-opener/',
     license='BSD',
     author='diofeher',

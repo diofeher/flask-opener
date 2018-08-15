@@ -1,0 +1,3 @@
+recursive-include flask_opener/templates *
+include LICENSE
+include README.md
