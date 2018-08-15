@@ -59,7 +59,7 @@
         <div class="message_container">
             <div class="row">
                 <div class="col-left">From:</div>
-                <div class="col-right">{{ message.from_email }}</div>
+                <div class="col-right">{{ message.sender }}</div>
             </div>
             <div class="row">
                 <div class="col-left">Subject:</div>
@@ -71,7 +71,7 @@
             </div>
             <div class="row">
                 <div class="col-left">To:</div>
-                <div class="col-right">{{ message.to }}</div>
+                <div class="col-right">{{ message.recipients }}</div>
             </div>
             {% if attachments %}
                 <div class="row">
