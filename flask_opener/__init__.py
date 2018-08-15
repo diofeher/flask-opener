@@ -39,7 +39,7 @@ class FlaskOpener():
             'message': message,
             'body': message.html,
         }
-        content = render_template('message.html', **context)
+        content = render_template('flask_opener/message.html', **context)
         fname = self._get_filename()
         fp = open(fname, 'w+')
         fp.write(content)
