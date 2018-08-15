@@ -4,7 +4,7 @@ import time
 import os
 import six
 import webbrowser
-from flask import make_response, render_template
+from flask import make_response, render_template, Blueprint
 
 
 class FlaskOpener():
@@ -14,6 +14,9 @@ class FlaskOpener():
             self.state = self.init_app(app)
         else:
             self.state = None
+        self.blueprint = Blueprint('flask_opener', __name__,
+            static_folder='static', template_folder='templates')
+        self.app.register_blueprint(self.blueprint)
 
     def init_app(self, app):
         state = {}
@@ -25,11 +28,9 @@ class FlaskOpener():
 
     def _get_filename(self):
         """Return a unique file name."""
-        if self._fname is None:
-            timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-            fname = "%s-%s.html" % (timestamp, abs(id(self)))
-            self._fname = os.path.join('/tmp', fname)
-        return self._fname
+        timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        fname = "%s-%s.html" % (timestamp, abs(id(self)))
+        return os.path.join('/tmp', fname)
 
     def send(self, message):
         # TODO: Add support for attachments
@@ -39,7 +40,8 @@ class FlaskOpener():
             'body': message.html,
         }
         content = render_template('message.html', **context)
-        fp = open(self._get_filename(), 'w+')
+        fname = self._get_filename()
+        fp = open(fname, 'w+')
         fp.write(content)
         fp.close()
-        webbrowser.open('file://' + self._fname)
+        webbrowser.open('file://' + fname)

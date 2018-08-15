@@ -19,6 +19,7 @@ setup(
     platforms='any',
     install_requires=[
         'Flask',
+        'Flask-Mail>0.9'
     ],
     classifiers=[
         'Environment :: Web Environment',
